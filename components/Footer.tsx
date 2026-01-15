@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-cyan rounded flex items-center justify-center font-bold text-midnight">YM</div>
+              <div className="w-8 h-8 bg-primary-orange rounded flex items-center justify-center font-bold text-white">YM</div>
               <span className="font-lexend font-bold text-white tracking-tight">Young Microworld</span>
             </Link>
             <p className="text-sm leading-relaxed">
@@ -19,17 +19,17 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-bold mb-4">Platform</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/how-it-works" className="hover:text-cyan transition-colors">How It Works</Link></li>
-              <li><Link to="/programs" className="hover:text-cyan transition-colors">Programs</Link></li>
-              <li><Link to="/membership" className="hover:text-cyan transition-colors">Membership</Link></li>
+              <li><Link to="/how-it-works" className="hover:text-primary-orange transition-colors">How It Works</Link></li>
+              <li><Link to="/programs" className="hover:text-primary-orange transition-colors">Programs</Link></li>
+              <li><Link to="/membership" className="hover:text-primary-orange transition-colors">Membership</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="text-white font-bold mb-4">Community</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/about" className="hover:text-cyan transition-colors">Our Vision</Link></li>
-              <li><Link to="/events" className="hover:text-cyan transition-colors">Events</Link></li>
-              <li><Link to="/voting" className="hover:text-cyan transition-colors">Governance</Link></li>
+              <li><Link to="/about" className="hover:text-primary-orange transition-colors">Our Vision</Link></li>
+              <li><Link to="/events" className="hover:text-primary-orange transition-colors">Events</Link></li>
+              <li><Link to="/voting" className="hover:text-primary-orange transition-colors">Governance</Link></li>
             </ul>
           </div>
           <div>

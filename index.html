@@ -14,15 +14,24 @@
       theme: {
         extend: {
           colors: {
-            midnight: '#2D1B69',
-            cyan: '#00F5FF',
-            gold: '#FFD700',
-            coral: '#FF7F50',
+            'primary-orange': '#FF6B00',
+            'secondary-pink': '#FF2D55',
+            'highlight-yellow': '#FFD700',
+            'neutral-light': '#F8FAFC',
+            'midnight': '#1E293B', // Refined to a more neutral dark for contrast
+          },
+          backgroundImage: {
+            'hero-gradient': 'linear-gradient(135deg, #FF2D55 0%, #FF6B00 100%)',
+            'action-gradient': 'linear-gradient(135deg, #FF6B00 0%, #FFD700 100%)',
           },
           fontFamily: {
             lexend: ['Lexend', 'sans-serif'],
             inter: ['Inter', 'sans-serif'],
           },
+          boxShadow: {
+            'pink-glow': '0 0 20px rgba(255, 45, 85, 0.3)',
+            'orange-glow': '0 0 20px rgba(255, 107, 0, 0.3)',
+          }
         }
       }
     }

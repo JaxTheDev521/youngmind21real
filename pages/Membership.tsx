@@ -27,39 +27,39 @@ const Membership: React.FC = () => {
   ];
 
   return (
-    <div className="bg-slate-50 py-20 px-4">
+    <div className="bg-neutral-light py-20 px-4">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold font-lexend mb-4">Choose Your Path</h1>
+          <h1 className="text-4xl font-bold font-lexend mb-4 text-midnight">Choose Your Path</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">Every child can lead. Pick a membership that fits your goals and start building your future today.</p>
+          <div className="h-1.5 w-24 bg-primary-orange mx-auto rounded-full mt-6" />
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 items-stretch">
           {plans.map((plan, i) => (
-            <div key={i} className={`rounded-3xl p-10 border-2 flex flex-col ${plan.color} ${plan.highlight ? 'shadow-2xl scale-105 z-10' : 'shadow-sm'}`}>
+            <div key={i} className={`rounded-3xl p-10 border-2 flex flex-col transition-all duration-300 ${plan.highlight ? 'bg-primary-orange text-white border-primary-orange shadow-orange-glow scale-105 z-10' : 'bg-white text-midnight border-gray-100 shadow-sm hover:shadow-pink-glow'}`}>
               <div className="mb-8">
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+                <h3 className="text-2xl font-bold mb-2 font-lexend">{plan.name}</h3>
                 <div className="flex items-baseline gap-1">
                   <span className="text-5xl font-bold">{plan.price}</span>
-                  <span className="text-sm opacity-60 font-medium">{plan.period}</span>
+                  <span className="text-sm opacity-70 font-medium">{plan.period}</span>
                 </div>
-                <p className="mt-4 opacity-80 leading-relaxed text-sm">{plan.description}</p>
+                <p className="mt-4 opacity-90 leading-relaxed text-sm">{plan.description}</p>
               </div>
-              
+
               <ul className="space-y-4 mb-10 flex-grow">
                 {plan.features.map((feature, j) => (
                   <li key={j} className="flex items-start gap-3 text-sm">
-                    <span className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs ${plan.highlight ? 'bg-cyan text-midnight' : 'bg-green-100 text-green-600'}`}>✓</span>
+                    <span className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs ${plan.highlight ? 'bg-highlight-yellow text-midnight' : 'bg-secondary-pink/10 text-secondary-pink'}`}>✓</span>
                     {feature}
                   </li>
                 ))}
               </ul>
 
-              <Link 
-                to="/onboarding" 
-                className={`block text-center py-4 rounded-xl font-bold transition-all transform active:scale-95 shadow-lg ${
-                  plan.highlight ? 'bg-cyan text-midnight hover:bg-white' : 'bg-midnight text-white hover:bg-gray-800'
-                }`}
+              <Link
+                to="/onboarding"
+                className={`block text-center py-4 rounded-full font-bold transition-all transform active:scale-95 shadow-lg ${plan.highlight ? 'bg-white text-primary-orange hover:bg-highlight-yellow hover:text-midnight' : 'bg-secondary-pink text-white hover:bg-secondary-pink/90'
+                  }`}
               >
                 {plan.cta}
               </Link>

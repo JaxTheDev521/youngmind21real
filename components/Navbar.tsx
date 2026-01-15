@@ -33,13 +33,13 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="bg-midnight text-white sticky top-0 z-50 shadow-lg">
+    <nav className="bg-white text-midnight sticky top-0 z-50 shadow-sm border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center gap-2 group">
-              <div className="w-10 h-10 bg-cyan rounded-lg flex items-center justify-center font-bold text-midnight text-xl transform group-hover:rotate-12 transition-transform">YM</div>
-              <span className="font-lexend font-bold text-xl tracking-tight">Young Microworld</span>
+              <div className="w-10 h-10 bg-primary-orange rounded-lg flex items-center justify-center font-bold text-white text-xl transform group-hover:rotate-12 transition-transform shadow-orange-glow">YM</div>
+              <span className="font-lexend font-bold text-xl tracking-tight text-midnight">Young Microworld</span>
             </Link>
           </div>
 
@@ -48,28 +48,27 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  isActive(link.path) ? 'text-cyan bg-white/10' : 'text-gray-300 hover:text-white hover:bg-white/5'
-                }`}
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive(link.path) ? 'text-primary-orange' : 'text-gray-600 hover:text-primary-orange hover:bg-orange-50'
+                  }`}
               >
                 {link.name}
               </Link>
             ))}
 
             {user ? (
-              <div className="flex items-center gap-4 ml-4 pl-4 border-l border-white/20">
-                <span className="text-sm font-semibold text-cyan">{user.name}</span>
+              <div className="flex items-center gap-4 ml-4 pl-4 border-l border-gray-200">
+                <span className="text-sm font-semibold text-primary-orange">{user.name}</span>
                 <button
                   onClick={onLogout}
-                  className="bg-coral hover:bg-coral/80 text-white px-4 py-2 rounded-full text-sm font-bold transition-all shadow-md active:scale-95"
+                  className="bg-secondary-pink hover:bg-secondary-pink/90 text-white px-4 py-2 rounded-full text-sm font-bold transition-all shadow-md active:scale-95"
                 >
                   Logout
                 </button>
               </div>
             ) : (
               <div className="flex items-center gap-3">
-                <Link to="/login" className="text-gray-300 hover:text-white text-sm font-medium px-4">Login</Link>
-                <Link to="/onboarding" className="bg-cyan text-midnight hover:bg-white px-6 py-2 rounded-full text-sm font-bold transition-all shadow-[0_0_15px_rgba(0,245,255,0.4)] active:scale-95">
+                <Link to="/login" className="text-gray-600 hover:text-primary-orange text-sm font-medium px-4">Login</Link>
+                <Link to="/onboarding" className="bg-primary-orange text-white hover:bg-primary-orange/90 px-6 py-2 rounded-full text-sm font-bold transition-all shadow-orange-glow active:scale-95">
                   Join Now
                 </Link>
               </div>
@@ -79,7 +78,7 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-primary-orange hover:bg-orange-50 focus:outline-none"
             >
               <span className="sr-only">Open main menu</span>
               <svg className={`${isOpen ? 'hidden' : 'block'} h-6 w-6`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -94,22 +93,23 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`${isOpen ? 'block' : 'hidden'} md:hidden bg-midnight/95 backdrop-blur-md`}>
+      <div className={`${isOpen ? 'block' : 'hidden'} md:hidden bg-white/95 backdrop-blur-md border-t border-gray-100`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           {(user ? authLinks : publicLinks).map((link) => (
             <Link
               key={link.path}
               to={link.path}
               onClick={() => setIsOpen(false)}
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/10"
+              className={`block px-3 py-2 rounded-md text-base font-medium ${isActive(link.path) ? 'text-primary-orange bg-orange-50' : 'text-gray-600 hover:text-primary-orange hover:bg-orange-50'
+                }`}
             >
               {link.name}
             </Link>
           ))}
           {user ? (
-            <button onClick={() => { onLogout(); setIsOpen(false); }} className="w-full text-left px-3 py-2 text-coral font-bold">Logout</button>
+            <button onClick={() => { onLogout(); setIsOpen(false); }} className="w-full text-left px-3 py-2 text-secondary-pink font-bold">Logout</button>
           ) : (
-            <Link to="/onboarding" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-cyan font-bold">Join Now</Link>
+            <Link to="/onboarding" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-primary-orange font-bold">Join Now</Link>
           )}
         </div>
       </div>
