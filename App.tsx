@@ -24,11 +24,14 @@ const App: React.FC = () => {
   // Simple mock login for demo purposes
   const handleLogin = (role: UserRole) => {
     setUser({
-      id: '1',
+      id: role === UserRole.ADMIN ? 'admin-1' : 'user-1',
       name: role === UserRole.ADMIN ? 'Admin User' : 'Young Leader',
-      email: 'user@example.com',
+      email: role === UserRole.ADMIN ? 'admin@youngmind.com' : 'user@youngmind.com',
       role: role,
-      department: 'Innovation & Tech'
+      is_approved: true,
+      membership_type: role === UserRole.PREMIUM ? 'Premium Leader' : 'Free Citizen',
+      department: 'Innovation & Tech',
+      linked_child_profiles: role === UserRole.MEMBER || role === UserRole.PREMIUM ? ['p1'] : []
     });
   };
 

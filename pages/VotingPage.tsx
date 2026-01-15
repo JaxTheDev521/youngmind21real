@@ -28,20 +28,22 @@ const VotingPage: React.FC = () => {
         </header>
 
         {hasVoted ? (
-          <div className="bg-white rounded-3xl p-12 text-center shadow-xl animate-in zoom-in duration-500 border border-highlight-yellow/30">
-            <div className="text-6xl mb-6">🗳️</div>
-            <h2 className="text-3xl font-bold text-midnight mb-2 font-lexend">Vote Cast Successfully!</h2>
-            <p className="text-gray-500 mb-8">Thank you for participating in the democratic process of our mini-society.</p>
-            <div className="space-y-4 max-w-sm mx-auto">
+          <div className="glass text-midnight rounded-[3rem] p-12 md:p-16 text-center shadow-2xl animate-fade-in border-white/50 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-2 bg-hero-gradient" />
+            <div className="text-8xl mb-8 drop-shadow-lg">🗳️</div>
+            <h2 className="text-4xl font-black mb-4 font-lexend tracking-tight">Vote Cast Successfully!</h2>
+            <p className="text-gray-500 mb-12 text-lg font-medium max-w-md mx-auto">Thank you for participating in the democratic process of our mini-society. Your voice has been heard!</p>
+
+            <div className="space-y-6 max-w-md mx-auto">
               {candidates.map(c => (
-                <div key={c.id}>
-                  <div className="flex justify-between text-sm font-bold mb-1 text-midnight">
+                <div key={c.id} className="bg-neutral-light/50 p-6 rounded-2xl border border-white/50 shadow-sm">
+                  <div className="flex justify-between text-base font-black mb-3 text-midnight uppercase tracking-wider">
                     <span>{c.name}</span>
-                    <span>{c.votes + (selectedCandidate === c.id ? 1 : 0)} votes</span>
+                    <span className="text-primary-orange">{c.votes + (selectedCandidate === c.id ? 1 : 0)} votes</span>
                   </div>
-                  <div className="w-full bg-neutral-light h-2 rounded-full overflow-hidden">
+                  <div className="w-full bg-gray-200 h-3 rounded-full overflow-hidden shadow-inner">
                     <div
-                      className="bg-primary-orange h-full transition-all duration-1000"
+                      className="bg-hero-gradient h-full transition-all duration-[2000ms] ease-out"
                       style={{ width: `${((c.votes + (selectedCandidate === c.id ? 1 : 0)) / 400) * 100}%` }}
                     />
                   </div>
@@ -50,52 +52,56 @@ const VotingPage: React.FC = () => {
             </div>
           </div>
         ) : (
-          <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="space-y-10 animate-fade-in">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {candidates.map((candidate) => (
                 <div
                   key={candidate.id}
                   onClick={() => setSelectedCandidate(candidate.id)}
-                  className={`p-6 rounded-3xl border-2 transition-all cursor-pointer bg-white relative overflow-hidden group ${selectedCandidate === candidate.id ? 'border-primary-orange ring-4 ring-orange-100 scale-105 shadow-orange-glow' : 'border-transparent hover:border-secondary-pink/30 hover:shadow-pink-glow'
+                  className={`p-8 rounded-[2.5rem] border-2 transition-all duration-300 cursor-pointer bg-white relative overflow-hidden group hover:-translate-y-2 ${selectedCandidate === candidate.id
+                    ? 'border-primary-orange ring-8 ring-orange-100/50 scale-105 shadow-orange-glow'
+                    : 'border-transparent glass-dark/5 shadow-xl hover:shadow-pink-glow'
                     }`}
                 >
-                  <div className="text-4xl mb-4 transition-transform group-hover:scale-110">{candidate.avatar}</div>
-                  <h3 className="font-bold text-lg text-midnight mb-1 font-lexend">{candidate.name}</h3>
-                  <p className="text-xs text-gray-400 font-medium mb-3 italic">"{candidate.slogan}"</p>
-                  <div className="mt-4 flex items-center justify-between">
-                    <span className="text-xs font-bold text-gray-400">Campaigning</span>
-                    {selectedCandidate === candidate.id && <span className="text-primary-orange font-black text-xl">✓</span>}
+                  <div className="text-6xl mb-6 transition-transform group-hover:scale-110 drop-shadow-md">{candidate.avatar}</div>
+                  <h3 className="font-extrabold text-2xl text-midnight mb-2 font-lexend">{candidate.name}</h3>
+                  <p className="text-sm text-gray-500 font-medium mb-6 leading-relaxed italic">"{candidate.slogan}"</p>
+                  <div className="mt-auto flex items-center justify-between pt-4 border-t border-gray-100">
+                    <span className="text-xs font-black text-gray-400 uppercase tracking-widest">Candidate</span>
+                    {selectedCandidate === candidate.id && <div className="bg-primary-orange text-white w-8 h-8 rounded-full flex items-center justify-center font-black animate-in zoom-in">✓</div>}
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="bg-hero-gradient p-8 rounded-3xl text-white text-center mt-10 shadow-2xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16" />
-              <h3 className="text-xl font-bold mb-4 font-lexend relative z-10">Ready to commit?</h3>
-              <p className="text-white/80 text-sm mb-6 relative z-10">You can only vote once per election cycle. Your decision is final.</p>
+            <div className="bg-hero-gradient p-10 md:p-14 rounded-[3rem] text-white text-center shadow-2xl relative overflow-hidden group">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.2),transparent_70%)]" />
+              <h3 className="text-3xl font-black mb-4 font-lexend relative z-10 tracking-tight uppercase">Ready to commit?</h3>
+              <p className="text-white/80 text-lg mb-10 relative z-10 font-medium max-w-lg mx-auto leading-relaxed">You can only vote once per election cycle. Your decision shapes the future of our digital nation.</p>
               <button
                 onClick={handleVote}
                 disabled={!selectedCandidate}
-                className={`px-12 py-4 rounded-full font-bold text-lg transition-all shadow-xl relative z-10 ${selectedCandidate ? 'bg-white text-primary-orange hover:bg-highlight-yellow hover:text-midnight active:scale-95' : 'bg-white/20 text-white/40 cursor-not-allowed'
+                className={`px-16 py-5 rounded-2xl font-black text-xl transition-all shadow-2xl relative z-10 transform active:scale-95 ${selectedCandidate
+                  ? 'bg-white text-primary-orange hover:bg-highlight-yellow hover:text-midnight shadow-orange-glow'
+                  : 'bg-white/10 text-white/30 cursor-not-allowed border border-white/10'
                   }`}
               >
-                Submit Ballot
+                Submit My Ballot
               </button>
             </div>
           </div>
         )}
 
-        <div className="mt-20 border-t border-gray-200 pt-10 text-center">
-          <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">Past Election Results</h4>
-          <div className="flex justify-center gap-12">
-            <div className="text-center">
-              <span className="block text-2xl font-bold text-midnight">Q3 2024</span>
-              <span className="text-xs text-gray-500">Won by Maya R.</span>
+        <div className="mt-24 border-t border-gray-200 pt-12 text-center animate-fade-in" style={{ animationDelay: '500ms' }}>
+          <h4 className="text-xs font-black text-gray-400 uppercase tracking-[0.3em] mb-10">Historical Ledger</h4>
+          <div className="flex justify-center gap-16 md:gap-32">
+            <div className="text-center group">
+              <span className="block text-3xl font-black text-midnight group-hover:text-primary-orange transition-colors">Q3 2024</span>
+              <span className="text-sm text-gray-500 font-bold mt-2 block">Won by Maya R.</span>
             </div>
-            <div className="text-center">
-              <span className="block text-2xl font-bold text-midnight">Q2 2024</span>
-              <span className="text-xs text-gray-500">Won by Leo C.</span>
+            <div className="text-center group">
+              <span className="block text-3xl font-black text-midnight group-hover:text-primary-orange transition-colors">Q2 2024</span>
+              <span className="text-sm text-gray-500 font-bold mt-2 block">Won by Leo C.</span>
             </div>
           </div>
         </div>

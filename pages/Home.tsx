@@ -8,48 +8,48 @@ const Home: React.FC = () => {
   return (
     <div className="overflow-hidden bg-neutral-light">
       {/* Hero Section */}
-      <section className="relative bg-midnight lg:bg-hero-gradient text-white py-24 lg:py-32 overflow-hidden">
-        {/* Mobile-only background image: High clarity with a dark linear overlay for text contrast */}
+      <section className="relative min-h-[90vh] flex items-center bg-midnight lg:bg-hero-gradient text-white py-24 lg:py-0 overflow-hidden">
+        {/* Mobile-only background image */}
         <div
           className="absolute inset-0 block lg:hidden bg-cover bg-center z-0"
           style={{
-            backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.5)), url(${heroLeadership})`
+            backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.6)), url(${heroLeadership})`
           }}
         />
-        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(255,215,0,0.15),transparent_50%)] pointer-events-none z-0" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left">
-              <h1 className="text-5xl lg:text-7xl font-bold font-lexend mb-6 leading-tight">
-                Young <span className="text-highlight-yellow">Microworld</span>
+        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(255,215,0,0.2),transparent_60%)] pointer-events-none z-0" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="text-center lg:text-left animate-fade-in">
+              <h1 className="text-6xl lg:text-[5.5rem] font-black font-lexend mb-8 leading-[1.1] tracking-tight">
+                Young <span className="text-highlight-yellow drop-shadow-orange-glow">Microworld</span>
               </h1>
-              <p className="text-xl lg:text-2xl text-white/90 mb-10 leading-relaxed font-light">
-                Where Kids Experience the World in a Mini Way
-                Develop leadership, responsibility, entrepreneurship, and real-world life skills through fun, interactive mini-society experiences
+              <p className="text-xl lg:text-3xl text-white/90 mb-12 leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0">
+                Where Kids Experience the World in a Mini Way.
+                <span className="block mt-4 text-white/70 text-lg lg:text-xl font-normal">Develop leadership, responsibility, and entrepreneurship through interactive mini-society experiences.</span>
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link to="/onboarding" className="bg-white text-primary-orange hover:bg-highlight-yellow hover:text-midnight text-lg font-bold px-8 py-4 rounded-full transition-all transform hover:scale-105 shadow-xl">
+              <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
+                <Link to="/onboarding" className="bg-white text-primary-orange hover:bg-highlight-yellow hover:text-midnight text-xl font-black px-12 py-5 rounded-2xl transition-all transform hover:scale-105 shadow-2xl active:scale-95 shadow-orange-glow">
                   Join for Free
                 </Link>
-                <Link to="/how-it-works" className="bg-transparent border-2 border-white/30 hover:border-white text-white text-lg font-bold px-8 py-4 rounded-full transition-all">
+                <Link to="/how-it-works" className="glass-dark border-white/20 hover:border-white/50 text-white text-xl font-bold px-10 py-5 rounded-2xl transition-all backdrop-blur-xl">
                   See How It Works
                 </Link>
               </div>
             </div>
-            <div className="hidden lg:block">
+            <div className="hidden lg:block animate-fade-in" style={{ animationDelay: '200ms' }}>
               <div className="relative">
-                <div className="absolute -inset-4 bg-highlight-yellow/20 blur-3xl rounded-full" />
+                <div className="absolute -inset-10 bg-highlight-yellow/10 blur-[100px] rounded-full" />
                 <img
                   src={heroLeadership}
                   alt="Young Leaders Collaborative"
-                  className="relative rounded-3xl shadow-2xl border-4 border-white/20"
+                  className="relative rounded-[3rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)] border-4 border-white/10 transform rotate-2 hover:rotate-0 transition-all duration-700"
                 />
-                <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl max-w-xs text-midnight">
-                  <p className="text-sm font-bold flex items-center gap-2">
-                    <span className="w-2 h-2 bg-primary-orange rounded-full animate-pulse" />
+                <div className="absolute -bottom-10 -left-10 glass p-8 rounded-[2rem] shadow-2xl max-w-xs text-midnight border-white/50 animate-bounce-slow">
+                  <p className="text-sm font-black flex items-center gap-3">
+                    <span className="w-3 h-3 bg-primary-orange rounded-full animate-pulse" />
                     Live Voting Session Now
                   </p>
-                  <p className="text-xs text-gray-500 mt-1">Join the Council of Commerce</p>
+                  <p className="text-xs text-gray-500 mt-2 font-bold uppercase tracking-wider">Council of Commerce</p>
                 </div>
               </div>
             </div>
@@ -58,27 +58,26 @@ const Home: React.FC = () => {
       </section>
 
       {/* Highlights */}
-      <section className="py-20 bg-white">
+      <section className="py-32 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-midnight">A Digital Nation for Growth</h2>
-            <div className="h-1.5 w-24 bg-secondary-pink mx-auto rounded-full" />
+          <div className="text-center mb-24 animate-fade-in">
+            <h2 className="text-4xl lg:text-5xl font-black mb-6 text-midnight tracking-tight">A Digital Nation for Growth</h2>
+            <div className="h-2 w-24 bg-primary-orange mx-auto rounded-full shadow-orange-glow" />
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-10">
             {[
-              { icon: '🗳️', title: 'Workshops, Elections & Live Events', desc: 'Hands-on workshops, youth-led elections, and engaging live events that bring learning to life and give every member a voice.' },
-              { icon: '🦁', title: 'Leadership & Life Skills', desc: 'Practical experience in running departments and making tough decisions.' },
+              { icon: '🗳️', title: 'Workshops & Elections', desc: 'Youth-led elections and engaging live events that bring learning to life.' },
+              { icon: '🦁', title: 'Leadership Skills', desc: 'Practical experience in running departments and making tough decisions.' },
               { icon: '🏛️', title: 'Mini-Society Governance', desc: 'Real elections, voting, and collective problem-solving.' },
-              { icon: '💡', title: 'Entrepreneurship & Innovation', desc: 'Building business models and understanding marketplaces.' },
-              { icon: '🎭', title: 'Real Projects, Real Fun', desc: 'From digital art to community organizing, real fun projects.' },
+              { icon: '💡', title: 'Innovation', desc: 'Building business models and understanding marketplaces.' },
+              { icon: '🎭', title: 'Real Fun Projects', desc: 'From digital art to community organizing, real fun projects.' },
               { icon: '📅', title: 'Weekly Live Events', desc: 'Connect with peers across the globe in moderated safe sessions.' },
-              { icon: '🏆', title: 'Achievement Badges', desc: 'Earn recognition for your contributions and skill-building.' },
             ].map((feature, i) => (
-              <div key={i} className="group p-8 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-secondary-pink hover:text-white transition-all duration-300 shadow-sm hover:shadow-pink-glow">
-                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform inline-block">{feature.icon}</div>
-                <h3 className="text-xl font-bold mb-3 font-lexend">{feature.title}</h3>
-                <p className="text-gray-500 group-hover:text-gray-100 leading-relaxed text-sm">{feature.desc}</p>
+              <div key={i} className="group p-10 rounded-[2.5rem] border border-gray-100 bg-neutral-light hover:bg-secondary-pink hover:text-white hover:border-secondary-pink/20 transition-all duration-500 shadow-sm hover:shadow-pink-glow animate-fade-in" style={{ animationDelay: `${i * 100}ms` }}>
+                <div className="text-5xl mb-8 group-hover:scale-110 transition-transform inline-block drop-shadow-lg">{feature.icon}</div>
+                <h3 className="text-2xl font-black mb-4 font-lexend text-midnight group-hover:text-white transition-colors">{feature.title}</h3>
+                <p className="text-gray-500 leading-relaxed font-medium group-hover:text-white transition-colors">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -86,28 +85,31 @@ const Home: React.FC = () => {
       </section>
 
       {/* Intro Group */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-midnight">Built on Trust and Safety</h2>
-          <p className="text-lg text-gray-600 leading-relaxed mb-10">
-            Young Microworld isn't just a platform; it's a movement to empower children to think critically and act responsibly. Under the guidance of parents and educators, kids explore a structured digital world that mirrors the real one—providing a safe space to fail, learn, and succeed.
+      <section className="py-32 bg-gray-50 overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <h2 className="text-4xl font-black mb-8 text-midnight tracking-tight">Built on Trust and Safety</h2>
+          <p className="text-xl text-gray-600 leading-relaxed mb-16 font-medium max-w-3xl mx-auto">
+            Young Microworld isn't just a platform; it's a movement to empower children to think critically and act responsibly. Under the guidance of parents and educators, kids explore a digital world that mirrors the real one.
           </p>
-          <img
-            src={safetyTrust}
-            alt="Safety and Guidance"
-            className="rounded-3xl shadow-lg border border-gray-200"
-          />
+          <div className="relative group">
+            <div className="absolute -inset-4 bg-primary-orange/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+            <img
+              src={safetyTrust}
+              alt="Safety and Guidance"
+              className="relative rounded-[3rem] shadow-2xl border-4 border-white transition-transform duration-700 group-hover:scale-[1.02]"
+            />
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-primary-orange py-20 text-white text-center relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_bottom_left,rgba(255,45,85,0.3),transparent_70%)] pointer-events-none" />
+      <section className="py-32 bg-hero-gradient text-white text-center relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_bottom_left,rgba(255,215,0,0.2),transparent_70%)] pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <h2 className="text-4xl font-bold mb-6 font-lexend">Ready to Lead Your World?</h2>
-          <p className="text-xl opacity-90 mb-10">Join thousands of kids building the future today.</p>
-          <Link to="/onboarding" className="bg-white text-primary-orange hover:bg-highlight-yellow hover:text-midnight text-xl font-bold px-12 py-5 rounded-full transition-all inline-block shadow-2xl transform hover:scale-105">
-            Start Your Journey
+          <h2 className="text-5xl lg:text-6xl font-black mb-8 font-lexend tracking-tight uppercase">Ready to Lead Your World?</h2>
+          <p className="text-2xl opacity-90 mb-12 font-medium">Join thousands of kids building the future today.</p>
+          <Link to="/onboarding" className="bg-white text-primary-orange hover:bg-highlight-yellow hover:text-midnight text-2xl font-black px-16 py-6 rounded-2xl transition-all inline-block shadow-2xl transform hover:scale-105 active:scale-95 shadow-orange-glow">
+            Start Your Journey 🚀
           </Link>
         </div>
       </section>

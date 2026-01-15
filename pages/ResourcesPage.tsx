@@ -9,44 +9,52 @@ interface ResourcesPageProps {
 
 const ResourcesPage: React.FC<ResourcesPageProps> = ({ user }) => {
   return (
-    <div className="bg-neutral-light min-h-screen py-12 px-4 shadow-inner">
-      <div className="max-w-6xl mx-auto">
-        <header className="mb-12">
-          <h1 className="text-4xl font-bold text-midnight font-lexend mb-2">Resource Library</h1>
-          <p className="text-gray-500">Essential tools, guides, and toolkits for your mini-state journey.</p>
-          <div className="h-1.5 w-24 bg-primary-orange rounded-full mt-6" />
+    <div className="bg-neutral-light min-h-screen py-24 px-4 relative overflow-hidden shadow-inner">
+      {/* Decorative Orbs */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary-orange/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <header className="mb-20 text-center animate-fade-in">
+          <h1 className="text-5xl lg:text-7xl font-black text-midnight font-lexend mb-6 tracking-tight uppercase">Knowledge Vault</h1>
+          <p className="text-xl lg:text-2xl text-gray-500 font-bold max-w-2xl mx-auto uppercase tracking-wide">Essential tools and guides for your leadership journey.</p>
+          <div className="h-2 w-24 bg-secondary-pink mx-auto rounded-full mt-8 shadow-pink-glow" />
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {MOCK_RESOURCES.map(resource => {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {MOCK_RESOURCES.map((resource, i) => {
             const hasAccess = user.role === UserRole.ADMIN ||
-              (resource.accessLevel === UserRole.MEMBER) ||
-              (resource.accessLevel === UserRole.PREMIUM && user.role === UserRole.PREMIUM);
+              (resource.access_level === 'free') ||
+              (resource.access_level === 'member') ||
+              (resource.access_level === 'premium' && user.role === UserRole.PREMIUM);
 
             return (
-              <div key={resource.id} className={`bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 transition-all ${hasAccess ? 'hover:shadow-pink-glow hover:-translate-y-1' : 'opacity-75'}`}>
-                <div className="h-40 bg-neutral-light flex items-center justify-center text-5xl relative">
+              <div key={resource.id} className={`glass rounded-[3rem] overflow-hidden shadow-2xl border-white/50 transition-all duration-500 animate-fade-in ${hasAccess ? 'hover:shadow-orange-glow/10 hover:-translate-y-2 group' : 'opacity-60 grayscale-[0.5]'}`} style={{ animationDelay: `${i * 100}ms` }}>
+                <div className="h-56 bg-neutral-light/50 flex items-center justify-center text-7xl relative shadow-inner overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
                   {resource.type === 'PDF' ? '📄' : '🎥'}
                   {!hasAccess && (
-                    <div className="absolute inset-0 bg-hero-gradient/90 backdrop-blur-sm flex flex-col items-center justify-center text-white p-4">
-                      <span className="text-3xl mb-2">🔒</span>
-                      <span className="text-xs font-bold uppercase tracking-widest text-highlight-yellow">Premium Only</span>
+                    <div className="absolute inset-0 bg-hero-gradient/80 backdrop-blur-md flex flex-col items-center justify-center text-white p-8">
+                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 ring-4 ring-white/10">
+                        <span className="text-3xl">🔒</span>
+                      </div>
+                      <span className="text-xs font-black uppercase tracking-[0.2em] text-highlight-yellow text-center">Premium Access Protocol Required</span>
                     </div>
                   )}
+                  {hasAccess && <div className="absolute bottom-4 right-6 text-primary-orange opacity-0 group-hover:opacity-100 transition-opacity font-black text-3xl">↓</div>}
                 </div>
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-primary-orange">{resource.type}</span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">{resource.accessLevel} Access</span>
+                <div className="p-8 lg:p-10">
+                  <div className="flex justify-between items-center mb-6">
+                    <span className="px-4 py-1.5 bg-primary-orange/10 text-primary-orange text-[10px] font-black rounded-lg uppercase tracking-[0.2em] border border-primary-orange/20">{resource.type}</span>
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 italic">{resource.access_level} CHARTER</span>
                   </div>
-                  <h3 className="text-lg font-bold text-midnight mb-4 font-lexend">{resource.title}</h3>
+                  <h3 className="text-2xl font-black text-midnight mb-8 font-lexend uppercase tracking-tight leading-tight group-hover:text-primary-orange transition-colors">{resource.title}</h3>
                   {hasAccess ? (
-                    <button className="w-full py-3 bg-gray-50 text-midnight border border-gray-100 rounded-xl font-bold text-sm hover:bg-secondary-pink hover:text-white transition-all shadow-sm">
-                      Download Resource
+                    <button className="w-full py-5 bg-white text-midnight border-2 border-gray-100 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-primary-orange hover:text-white hover:border-primary-orange transition-all shadow-xl active:scale-95 group-hover:shadow-orange-glow/20">
+                      Download Archive
                     </button>
                   ) : (
-                    <button className="w-full py-3 bg-primary-orange text-white rounded-xl font-bold text-sm hover:scale-[1.02] transform transition-all shadow-orange-glow">
-                      Upgrade to Unlock
+                    <button className="w-full py-5 bg-primary-orange text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-highlight-yellow hover:text-midnight transition-all shadow-2xl active:scale-95 shadow-orange-glow">
+                      Unlock Full Access ⚡
                     </button>
                   )}
                 </div>
