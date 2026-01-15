@@ -8,8 +8,15 @@ const Home: React.FC = () => {
   return (
     <div className="overflow-hidden bg-neutral-light">
       {/* Hero Section */}
-      <section className="relative bg-hero-gradient text-white py-24 lg:py-32 overflow-hidden">
-        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(255,215,0,0.2),transparent_50%)] pointer-events-none" />
+      <section className="relative bg-midnight lg:bg-hero-gradient text-white py-24 lg:py-32 overflow-hidden">
+        {/* Mobile-only background image: High clarity with a dark linear overlay for text contrast */}
+        <div
+          className="absolute inset-0 block lg:hidden bg-cover bg-center z-0"
+          style={{
+            backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.5)), url(${heroLeadership})`
+          }}
+        />
+        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(255,215,0,0.15),transparent_50%)] pointer-events-none z-0" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
@@ -17,7 +24,8 @@ const Home: React.FC = () => {
                 Young <span className="text-highlight-yellow">Microworld</span>
               </h1>
               <p className="text-xl lg:text-2xl text-white/90 mb-10 leading-relaxed font-light">
-                Where Kids Experience the World in a Mini Way. Building leaders, entrepreneurs, and global citizens through active participation.
+                Where Kids Experience the World in a Mini Way
+                Develop leadership, responsibility, entrepreneurship, and real-world life skills through fun, interactive mini-society experiences
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link to="/onboarding" className="bg-white text-primary-orange hover:bg-highlight-yellow hover:text-midnight text-lg font-bold px-8 py-4 rounded-full transition-all transform hover:scale-105 shadow-xl">
@@ -59,16 +67,17 @@ const Home: React.FC = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
+              { icon: '🗳️', title: 'Workshops, Elections & Live Events', desc: 'Hands-on workshops, youth-led elections, and engaging live events that bring learning to life and give every member a voice.' },
               { icon: '🦁', title: 'Leadership & Life Skills', desc: 'Practical experience in running departments and making tough decisions.' },
               { icon: '🏛️', title: 'Mini-Society Governance', desc: 'Real elections, voting, and collective problem-solving.' },
-              { icon: '💡', title: 'Entrepreneurship', desc: 'Building business models and understanding marketplaces.' },
-              { icon: '🎭', title: 'Creative Projects', desc: 'From digital art to community organizing, real fun projects.' },
+              { icon: '💡', title: 'Entrepreneurship & Innovation', desc: 'Building business models and understanding marketplaces.' },
+              { icon: '🎭', title: 'Real Projects, Real Fun', desc: 'From digital art to community organizing, real fun projects.' },
               { icon: '📅', title: 'Weekly Live Events', desc: 'Connect with peers across the globe in moderated safe sessions.' },
               { icon: '🏆', title: 'Achievement Badges', desc: 'Earn recognition for your contributions and skill-building.' },
             ].map((feature, i) => (
               <div key={i} className="group p-8 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-secondary-pink hover:text-white transition-all duration-300 shadow-sm hover:shadow-pink-glow">
                 <div className="text-4xl mb-6 group-hover:scale-110 transition-transform inline-block">{feature.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                <h3 className="text-xl font-bold mb-3 font-lexend">{feature.title}</h3>
                 <p className="text-gray-500 group-hover:text-gray-100 leading-relaxed text-sm">{feature.desc}</p>
               </div>
             ))}

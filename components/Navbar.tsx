@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../assets/logo.png';
 import { User, UserRole } from '../types';
 
 interface NavbarProps {
@@ -37,9 +38,14 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0 flex items-center gap-2 group">
-              <div className="w-10 h-10 bg-primary-orange rounded-lg flex items-center justify-center font-bold text-white text-xl transform group-hover:rotate-12 transition-transform shadow-orange-glow">YM</div>
-              <span className="font-lexend font-bold text-xl tracking-tight text-midnight">Young Microworld</span>
+            <Link to="/" className="flex-shrink-0 flex items-center gap-3 group">
+              <div className="w-12 h-12 bg-hero-gradient rounded-xl flex items-center justify-center font-bold text-white text-xl transform group-hover:rotate-12 transition-all shadow-orange-glow">
+                YM
+              </div>
+              <span className="font-['Pacifico',cursive] text-3xl tracking-wide">
+                <span className="text-blue-600">Young</span>{' '}
+                <span className="text-primary-orange">Microworld</span>
+              </span>
             </Link>
           </div>
 

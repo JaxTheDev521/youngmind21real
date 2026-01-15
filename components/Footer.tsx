@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const Footer: React.FC = () => {
   return (
@@ -8,9 +9,14 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-primary-orange rounded flex items-center justify-center font-bold text-white">YM</div>
-              <span className="font-lexend font-bold text-white tracking-tight">Young Microworld</span>
+            <Link to="/" className="flex-shrink-0 flex items-center gap-3 mb-4 group">
+              <div className="w-10 h-10 bg-primary-orange rounded-lg flex items-center justify-center font-bold text-white transition-all group-hover:rotate-6">
+                YM
+              </div>
+              <span className="font-['Pacifico',cursive] text-2xl tracking-wide">
+                <span className="text-blue-400">Young</span>{' '}
+                <span className="text-primary-orange">Microworld</span>
+              </span>
             </Link>
             <p className="text-sm leading-relaxed">
               Empowering the next generation of leaders through a mini digital society. Safe, fun, and transformative.
