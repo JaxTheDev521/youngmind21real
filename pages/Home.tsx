@@ -8,30 +8,30 @@ const Home: React.FC = () => {
   return (
     <div className="overflow-hidden bg-neutral-light">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center bg-midnight lg:bg-hero-gradient text-white py-24 lg:py-0 overflow-hidden">
+      <section className="relative min-h-[85vh] lg:min-h-[90vh] flex items-center bg-midnight lg:bg-hero-gradient text-white py-16 sm:py-24 lg:py-0 overflow-hidden">
         {/* Mobile-only background image */}
         <div
           className="absolute inset-0 block lg:hidden bg-cover bg-center z-0"
           style={{
-            backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.6)), url(${heroLeadership})`
+            backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.7)), url(${heroLeadership})`
           }}
         />
-        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(255,215,0,0.2),transparent_60%)] pointer-events-none z-0" />
+        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(255,215,0,0.15),transparent_60%)] pointer-events-none z-0" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div className="text-center lg:text-left animate-fade-in">
-              <h1 className="text-6xl lg:text-[5.5rem] font-black font-lexend mb-8 leading-[1.1] tracking-tight">
+              <h1 className="text-4xl sm:text-6xl lg:text-[5.5rem] font-black font-lexend mb-6 sm:mb-8 leading-[1.1] tracking-tight">
                 Young <span className="text-highlight-yellow drop-shadow-orange-glow">Microworld</span>
               </h1>
-              <p className="text-xl lg:text-3xl text-white/90 mb-12 leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0">
+              <p className="text-lg sm:text-xl lg:text-3xl text-white/90 mb-8 sm:mb-12 leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0">
                 Where Kids Experience the World in a Mini Way.
-                <span className="block mt-4 text-white/70 text-lg lg:text-xl font-normal">Develop leadership, responsibility, and entrepreneurship through interactive mini-society experiences.</span>
+                <span className="block mt-2 sm:mt-4 text-white/70 text-base sm:text-lg lg:text-xl font-normal">Develop leadership, responsibility, and entrepreneurship through interactive mini-society experiences.</span>
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
-                <Link to="/onboarding" className="bg-white text-primary-orange hover:bg-highlight-yellow hover:text-midnight text-xl font-black px-12 py-5 rounded-2xl transition-all transform hover:scale-105 shadow-2xl active:scale-95 shadow-orange-glow">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start">
+                <Link to="/onboarding" className="bg-white text-primary-orange hover:bg-highlight-yellow hover:text-midnight text-lg sm:text-xl font-black px-8 sm:px-12 py-4 sm:py-5 rounded-2xl transition-all transform hover:scale-105 shadow-2xl active:scale-95 shadow-orange-glow">
                   Join for Free
                 </Link>
-                <Link to="/how-it-works" className="glass-dark border-white/20 hover:border-white/50 text-white text-xl font-bold px-10 py-5 rounded-2xl transition-all backdrop-blur-xl">
+                <Link to="/how-it-works" className="glass-dark border-white/20 hover:border-white/50 text-white text-lg sm:text-xl font-bold px-8 sm:px-10 py-4 sm:py-5 rounded-2xl transition-all backdrop-blur-xl">
                   See How It Works
                 </Link>
               </div>
@@ -58,14 +58,14 @@ const Home: React.FC = () => {
       </section>
 
       {/* Highlights */}
-      <section className="py-32 bg-white relative">
+      <section className="py-20 sm:py-32 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-24 animate-fade-in">
-            <h2 className="text-4xl lg:text-5xl font-black mb-6 text-midnight tracking-tight">A Digital Nation for Growth</h2>
-            <div className="h-2 w-24 bg-primary-orange mx-auto rounded-full shadow-orange-glow" />
+          <div className="text-center mb-16 sm:mb-24 animate-fade-in">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 text-midnight tracking-tight">A Digital Nation for Growth</h2>
+            <div className="h-2 w-20 sm:w-24 bg-primary-orange mx-auto rounded-full shadow-orange-glow" />
           </div>
 
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-10">
             {[
               { icon: '🗳️', title: 'Workshops & Elections', desc: 'Youth-led elections and engaging live events that bring learning to life.' },
               { icon: '🦁', title: 'Leadership Skills', desc: 'Practical experience in running departments and making tough decisions.' },
@@ -74,10 +74,10 @@ const Home: React.FC = () => {
               { icon: '🎭', title: 'Real Fun Projects', desc: 'From digital art to community organizing, real fun projects.' },
               { icon: '📅', title: 'Weekly Live Events', desc: 'Connect with peers across the globe in moderated safe sessions.' },
             ].map((feature, i) => (
-              <div key={i} className="group p-10 rounded-[2.5rem] border border-gray-100 bg-neutral-light hover:bg-secondary-pink hover:text-white hover:border-secondary-pink/20 transition-all duration-500 shadow-sm hover:shadow-pink-glow animate-fade-in" style={{ animationDelay: `${i * 100}ms` }}>
-                <div className="text-5xl mb-8 group-hover:scale-110 transition-transform inline-block drop-shadow-lg">{feature.icon}</div>
-                <h3 className="text-2xl font-black mb-4 font-lexend text-midnight group-hover:text-white transition-colors">{feature.title}</h3>
-                <p className="text-gray-500 leading-relaxed font-medium group-hover:text-white transition-colors">{feature.desc}</p>
+              <div key={i} className="group p-6 sm:p-10 rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 bg-neutral-light hover:bg-secondary-pink hover:text-white hover:border-secondary-pink/20 transition-all duration-500 shadow-sm hover:shadow-pink-glow animate-fade-in" style={{ animationDelay: `${i * 100}ms` }}>
+                <div className="text-4xl sm:text-5xl mb-6 sm:mb-8 group-hover:scale-110 transition-transform inline-block drop-shadow-lg">{feature.icon}</div>
+                <h3 className="text-xl sm:text-2xl font-black mb-3 sm:mb-4 font-lexend text-midnight group-hover:text-white transition-colors">{feature.title}</h3>
+                <p className="text-sm sm:text-base text-gray-500 leading-relaxed font-medium group-hover:text-white transition-colors">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -85,10 +85,10 @@ const Home: React.FC = () => {
       </section>
 
       {/* Intro Group */}
-      <section className="py-32 bg-gray-50 overflow-hidden">
+      <section className="py-20 sm:py-32 bg-gray-50 overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-black mb-8 text-midnight tracking-tight">Built on Trust and Safety</h2>
-          <p className="text-xl text-gray-600 leading-relaxed mb-16 font-medium max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-black mb-6 sm:mb-8 text-midnight tracking-tight">Built on Trust and Safety</h2>
+          <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-10 sm:mb-16 font-medium max-w-3xl mx-auto">
             Young Microworld isn't just a platform; it's a movement to empower children to think critically and act responsibly. Under the guidance of parents and educators, kids explore a digital world that mirrors the real one.
           </p>
           <div className="relative group">
@@ -103,12 +103,12 @@ const Home: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-hero-gradient text-white text-center relative overflow-hidden">
+      <section className="py-20 sm:py-32 bg-hero-gradient text-white text-center relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_bottom_left,rgba(255,215,0,0.2),transparent_70%)] pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <h2 className="text-5xl lg:text-6xl font-black mb-8 font-lexend tracking-tight uppercase">Ready to Lead Your World?</h2>
-          <p className="text-2xl opacity-90 mb-12 font-medium">Join thousands of kids building the future today.</p>
-          <Link to="/onboarding" className="bg-white text-primary-orange hover:bg-highlight-yellow hover:text-midnight text-2xl font-black px-16 py-6 rounded-2xl transition-all inline-block shadow-2xl transform hover:scale-105 active:scale-95 shadow-orange-glow">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 sm:mb-8 font-lexend tracking-tight uppercase">Ready to Lead Your World?</h2>
+          <p className="text-xl sm:text-2xl opacity-90 mb-8 sm:mb-12 font-medium">Join thousands of kids building the future today.</p>
+          <Link to="/onboarding" className="bg-white text-primary-orange hover:bg-highlight-yellow hover:text-midnight text-xl sm:text-2xl font-black px-10 sm:px-16 py-5 sm:py-6 rounded-2xl transition-all inline-block shadow-2xl transform hover:scale-105 active:scale-95 shadow-orange-glow">
             Start Your Journey 🚀
           </Link>
         </div>

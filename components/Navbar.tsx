@@ -36,13 +36,13 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
   return (
     <nav className="glass sticky top-0 z-50 shadow-sm border-b border-white/20 bg-yellow-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-yellow-400">
-        <div className="flex justify-between h-20">
+        <div className="flex justify-between h-16 sm:h-20">
           <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0 flex items-center gap-3 group transition-transform hover:scale-105 active:scale-95">
-              <div className="w-12 h-12 bg-hero-gradient rounded-xl flex items-center justify-center font-bold text-white text-xl transform group-hover:rotate-6 transition-all shadow-orange-glow">
+            <Link to="/" className="flex-shrink-0 flex items-center gap-2 sm:gap-3 group transition-transform hover:scale-105 active:scale-95">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-hero-gradient rounded-xl flex items-center justify-center font-bold text-white text-lg sm:text-xl transform group-hover:rotate-6 transition-all shadow-orange-glow">
                 YM
               </div>
-              <span className="font-['Pacifico',cursive] text-3xl tracking-wide">
+              <span className="font-['Pacifico',cursive] text-2xl sm:text-3xl tracking-wide whitespace-nowrap">
                 <span className="text-blue-600">Young</span>{' '}
                 <span className="text-primary-orange">Microworld</span>
               </span>
@@ -77,9 +77,9 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
                 </button>
               </div>
             ) : (
-              <div className="flex items-center gap-4">
-                <Link to="/login" className="text-gray-600 hover:text-primary-orange text-sm font-bold px-4 transition-colors">Login</Link>
-                <Link to="/onboarding" className="bg-primary-orange text-white hover:bg-highlight-yellow hover:text-midnight px-8 py-2.5 rounded-full text-sm font-bold transition-all shadow-orange-glow active:scale-95">
+              <div className="flex items-center gap-2 sm:gap-4">
+                <Link to="/login" className="text-gray-600 hover:text-primary-orange text-sm font-bold px-2 sm:px-4 transition-colors">Login</Link>
+                <Link to="/onboarding" className="bg-primary-orange text-white hover:bg-highlight-yellow hover:text-midnight px-6 sm:px-8 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all shadow-orange-glow active:scale-95 whitespace-nowrap">
                   Join Now
                 </Link>
               </div>
