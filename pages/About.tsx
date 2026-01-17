@@ -1,10 +1,12 @@
 
 import React from 'react';
 import visionFuture from '../assets/vision-future.png';
+import { Star, ShieldCheck, Globe, FileCheck } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
     <div className="bg-neutral-light min-h-screen">
+      {/* ... Hero ... */}
       <section className="bg-hero-gradient text-white py-24 sm:py-32 lg:py-48 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,215,0,0.3),transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-24 -left-20 w-96 h-96 bg-white/10 rounded-full blur-[100px]" />
@@ -38,7 +40,9 @@ const About: React.FC = () => {
                   { title: 'Innovation', desc: 'Solving real-world problems with creativity.', color: 'bg-highlight-yellow' },
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-4 sm:gap-6 group">
-                    <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl ${item.color} flex items-center justify-center text-white text-xl sm:text-2xl shadow-lg transform group-hover:rotate-12 transition-transform`}>★</div>
+                    <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl ${item.color} flex items-center justify-center text-white shadow-lg transform group-hover:rotate-12 transition-transform`}>
+                      <Star size={24} fill="currentColor" />
+                    </div>
                     <div>
                       <h4 className="text-lg sm:text-xl font-black text-midnight uppercase tracking-wide">{item.title}</h4>
                       <p className="text-sm sm:text-base text-gray-400 font-bold">{item.desc}</p>
@@ -66,12 +70,12 @@ const About: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black mb-12 sm:mb-20 text-midnight tracking-tighter uppercase italic opacity-20">The Microworld Promise</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
             {[
-              { icon: '🛡️', title: 'Safe Haven', desc: 'Fully moderated sessions with sovereign parent oversight.', color: 'border-primary-orange' },
-              { icon: '🌍', title: 'Global Alliance', desc: 'Connect with curious minds from across the globe.', color: 'border-secondary-pink' },
-              { icon: '📜', title: 'Real Prestige', desc: 'Earn recognized certificates and build a portfolio.', color: 'border-highlight-yellow' },
+              { icon: <ShieldCheck size={48} className="text-primary-orange" />, title: 'Safe Haven', desc: 'Fully moderated sessions with sovereign parent oversight.', color: 'border-primary-orange' },
+              { icon: <Globe size={48} className="text-secondary-pink" />, title: 'Global Alliance', desc: 'Connect with curious minds from across the globe.', color: 'border-secondary-pink' },
+              { icon: <FileCheck size={48} className="text-highlight-yellow" />, title: 'Real Prestige', desc: 'Earn recognized certificates and build a portfolio.', color: 'border-highlight-yellow' },
             ].map((promise, i) => (
-              <div key={i} className={`glass p-8 sm:p-12 rounded-[2.5rem] sm:rounded-[3rem] shadow-2xl border-t-8 ${promise.color} hover:-translate-y-2 transition-all duration-500 animate-fade-in`} style={{ animationDelay: `${i * 200}ms` }}>
-                <div className="text-5xl sm:text-6xl mb-6 sm:mb-8 transform hover:scale-110 transition-transform inline-block drop-shadow-xl">{promise.icon}</div>
+              <div key={i} className={`glass p-8 sm:p-12 rounded-[2.5rem] sm:rounded-[3rem] shadow-2xl border-t-8 ${promise.color} hover:-translate-y-2 transition-all duration-500 animate-fade-in flex flex-col items-center`} style={{ animationDelay: `${i * 200}ms` }}>
+                <div className="mb-6 sm:mb-8 transform hover:scale-110 transition-transform inline-block drop-shadow-xl p-4 bg-neutral-light rounded-[1.5rem]">{promise.icon}</div>
                 <h4 className="text-xl sm:text-2xl font-black mb-3 sm:mb-4 text-midnight uppercase tracking-tight">{promise.title}</h4>
                 <p className="text-sm sm:text-base text-gray-500 font-bold leading-relaxed">{promise.desc}</p>
               </div>

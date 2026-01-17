@@ -1,14 +1,15 @@
 
 import React, { useState } from 'react';
+import { Shield, Feather, Heart, Vote, CheckCircle2 } from 'lucide-react';
 
 const VotingPage: React.FC = () => {
   const [hasVoted, setHasVoted] = useState(false);
   const [selectedCandidate, setSelectedCandidate] = useState<string | null>(null);
 
   const candidates = [
-    { id: '1', name: 'Alex Thompson', slogan: 'Innovation for All Mini-Citizens!', votes: 142, avatar: '🦁' },
-    { id: '2', name: 'Maya Rodriguez', slogan: 'Fair Trade and Transparent Justice.', votes: 156, avatar: '🦅' },
-    { id: '3', name: 'Leo Chen', slogan: 'Building a Greener Digital Nation.', votes: 98, avatar: '🐼' },
+    { id: '1', name: 'Alex Thompson', slogan: 'Innovation for All Mini-Citizens!', votes: 142, avatar: <Shield size={48} className="text-primary-orange" /> },
+    { id: '2', name: 'Maya Rodriguez', slogan: 'Fair Trade and Transparent Justice.', votes: 156, avatar: <Feather size={48} className="text-secondary-pink" /> },
+    { id: '3', name: 'Leo Chen', slogan: 'Building a Greener Digital Nation.', votes: 98, avatar: <Heart size={48} className="text-highlight-yellow" /> },
   ];
 
   const handleVote = () => {
@@ -30,22 +31,27 @@ const VotingPage: React.FC = () => {
         {hasVoted ? (
           <div className="glass text-midnight rounded-[3rem] p-12 md:p-16 text-center shadow-2xl animate-fade-in border-white/50 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-2 bg-hero-gradient" />
-            <div className="text-8xl mb-8 drop-shadow-lg">🗳️</div>
+            <div className="flex justify-center mb-8 drop-shadow-lg text-primary-orange">
+              <CheckCircle2 size={96} />
+            </div>
             <h2 className="text-4xl font-black mb-4 font-lexend tracking-tight">Vote Cast Successfully!</h2>
             <p className="text-gray-500 mb-12 text-lg font-medium max-w-md mx-auto">Thank you for participating in the democratic process of our mini-society. Your voice has been heard!</p>
 
             <div className="space-y-6 max-w-md mx-auto">
               {candidates.map(c => (
-                <div key={c.id} className="bg-neutral-light/50 p-6 rounded-2xl border border-white/50 shadow-sm">
-                  <div className="flex justify-between text-base font-black mb-3 text-midnight uppercase tracking-wider">
-                    <span>{c.name}</span>
-                    <span className="text-primary-orange">{c.votes + (selectedCandidate === c.id ? 1 : 0)} votes</span>
-                  </div>
-                  <div className="w-full bg-gray-200 h-3 rounded-full overflow-hidden shadow-inner">
-                    <div
-                      className="bg-hero-gradient h-full transition-all duration-[2000ms] ease-out"
-                      style={{ width: `${((c.votes + (selectedCandidate === c.id ? 1 : 0)) / 400) * 100}%` }}
-                    />
+                <div key={c.id} className="bg-neutral-light/50 p-6 rounded-2xl border border-white/50 shadow-sm flex items-center gap-6">
+                  <div className="shrink-0">{c.avatar}</div>
+                  <div className="flex-grow">
+                    <div className="flex justify-between text-base font-black mb-3 text-midnight uppercase tracking-wider">
+                      <span>{c.name}</span>
+                      <span className="text-primary-orange">{c.votes + (selectedCandidate === c.id ? 1 : 0)} votes</span>
+                    </div>
+                    <div className="w-full bg-gray-200 h-3 rounded-full overflow-hidden shadow-inner">
+                      <div
+                        className="bg-hero-gradient h-full transition-all duration-[2000ms] ease-out"
+                        style={{ width: `${((c.votes + (selectedCandidate === c.id ? 1 : 0)) / 400) * 100}%` }}
+                      />
+                    </div>
                   </div>
                 </div>
               ))}
@@ -58,17 +64,19 @@ const VotingPage: React.FC = () => {
                 <div
                   key={candidate.id}
                   onClick={() => setSelectedCandidate(candidate.id)}
-                  className={`p-8 rounded-[2.5rem] border-2 transition-all duration-300 cursor-pointer bg-white relative overflow-hidden group hover:-translate-y-2 ${selectedCandidate === candidate.id
+                  className={`p-8 rounded-[2.5rem] border-2 transition-all duration-300 cursor-pointer bg-white relative overflow-hidden group hover:-translate-y-2 flex flex-col items-center text-center ${selectedCandidate === candidate.id
                     ? 'border-primary-orange ring-8 ring-orange-100/50 scale-105 shadow-orange-glow'
                     : 'border-transparent glass-dark/5 shadow-xl hover:shadow-pink-glow'
                     }`}
                 >
-                  <div className="text-6xl mb-6 transition-transform group-hover:scale-110 drop-shadow-md">{candidate.avatar}</div>
+                  <div className="mb-6 p-6 bg-neutral-light rounded-3xl transition-transform group-hover:scale-110 drop-shadow-md">
+                    {candidate.avatar}
+                  </div>
                   <h3 className="font-extrabold text-2xl text-midnight mb-2 font-lexend">{candidate.name}</h3>
                   <p className="text-sm text-gray-500 font-medium mb-6 leading-relaxed italic">"{candidate.slogan}"</p>
-                  <div className="mt-auto flex items-center justify-between pt-4 border-t border-gray-100">
+                  <div className="mt-auto w-full flex items-center justify-between pt-4 border-t border-gray-100">
                     <span className="text-xs font-black text-gray-400 uppercase tracking-widest">Candidate</span>
-                    {selectedCandidate === candidate.id && <div className="bg-primary-orange text-white w-8 h-8 rounded-full flex items-center justify-center font-black animate-in zoom-in">✓</div>}
+                    {selectedCandidate === candidate.id && <div className="bg-primary-orange text-white w-8 h-8 rounded-full flex items-center justify-center font-black animate-in zoom-in"><CheckCircle2 size={16} /></div>}
                   </div>
                 </div>
               ))}
@@ -81,12 +89,12 @@ const VotingPage: React.FC = () => {
               <button
                 onClick={handleVote}
                 disabled={!selectedCandidate}
-                className={`px-16 py-5 rounded-2xl font-black text-xl transition-all shadow-2xl relative z-10 transform active:scale-95 ${selectedCandidate
+                className={`px-16 py-5 rounded-2xl font-black text-xl transition-all shadow-2xl relative z-10 transform active:scale-95 inline-flex items-center gap-4 justify-center ${selectedCandidate
                   ? 'bg-white text-primary-orange hover:bg-highlight-yellow hover:text-midnight shadow-orange-glow'
                   : 'bg-white/10 text-white/30 cursor-not-allowed border border-white/10'
                   }`}
               >
-                Submit My Ballot
+                Submit My Ballot <Vote size={24} />
               </button>
             </div>
           </div>

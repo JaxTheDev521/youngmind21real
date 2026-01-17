@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import globalGames from '../assets/global-games.png';
+import { Trophy } from 'lucide-react';
 
 const Programs: React.FC = () => {
   const categories = [
@@ -43,7 +43,7 @@ const Programs: React.FC = () => {
         </div>
 
         <section className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center bg-hero-gradient rounded-[3rem] sm:rounded-[5rem] overflow-hidden text-white p-8 sm:p-14 lg:p-24 shadow-[0_48px_80px_-16px_rgba(249,115,22,0.4)] relative animate-fade-in" style={{ animationDelay: '500ms' }}>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,215,0,0.4),transparent_60%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,215,0,0.4),transparent_70%)] pointer-events-none" />
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-white/10 rounded-full blur-[100px]" />
 
           <div className="relative z-10 lg:col-span-7 text-center lg:text-left">
@@ -52,8 +52,8 @@ const Programs: React.FC = () => {
             <p className="text-white/80 mb-8 sm:mb-14 leading-relaxed text-lg sm:text-xl lg:text-2xl font-bold max-w-xl mx-auto lg:mx-0 italic">
               "The proving ground for young leaders. Competitions in innovation, sovereign debate, and planetary impact."
             </p>
-            <Link to="/onboarding" className="bg-white text-primary-orange px-8 sm:px-14 py-4 sm:py-6 rounded-[1.5rem] sm:rounded-[2rem] font-black text-xl sm:text-2xl hover:bg-highlight-yellow hover:text-midnight transition-all inline-block shadow-2xl active:scale-95 shadow-orange-glow transform hover:scale-110 uppercase tracking-widest">
-              Secure Your Spot 🏆
+            <Link to="/onboarding" className="bg-white text-primary-orange px-8 sm:px-14 py-4 sm:py-6 rounded-[1.5rem] sm:rounded-[2rem] font-black text-xl sm:text-2xl hover:bg-highlight-yellow hover:text-midnight transition-all inline-block shadow-2xl active:scale-95 shadow-orange-glow transform hover:scale-110 uppercase tracking-widest flex items-center justify-center gap-4">
+              Secure Your Spot <Trophy size={28} />
             </Link>
           </div>
 

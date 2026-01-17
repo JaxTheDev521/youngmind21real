@@ -1,14 +1,15 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { UserPlus, Landmark, Vote, Mic, Rocket } from 'lucide-react';
 
 const HowItWorks: React.FC = () => {
   const steps = [
-    { title: 'Join & Onboard', desc: 'Sign up with your parent and choose your initial department interest.', icon: '👤' },
-    { title: 'Departments (Mini-States)', desc: 'Join a specific group focused on commerce, justice, tech, or arts.', icon: '🏛️' },
-    { title: 'Elections & Governance', desc: 'Run for office or vote for your peers to lead departments.', icon: '🗳️' },
-    { title: 'Weekly Sessions', desc: 'Participate in live moderated Zoom workshops and meetings.', icon: '🎙️' },
-    { title: 'Projects & Marketplace', desc: 'Build actual digital projects and trade skills for microworld credits.', icon: '🚀' },
+    { title: 'Join & Onboard', desc: 'Sign up with your parent and choose your initial department interest.', icon: <UserPlus size={40} /> },
+    { title: 'Departments (Mini-States)', desc: 'Join a specific group focused on commerce, justice, tech, or arts.', icon: <Landmark size={40} /> },
+    { title: 'Elections & Governance', desc: 'Run for office or vote for your peers to lead departments.', icon: <Vote size={40} /> },
+    { title: 'Weekly Sessions', desc: 'Participate in live moderated Zoom workshops and meetings.', icon: <Mic size={40} /> },
+    { title: 'Projects & Marketplace', desc: 'Build actual digital projects and trade skills for microworld credits.', icon: <Rocket size={40} /> },
   ];
 
   return (

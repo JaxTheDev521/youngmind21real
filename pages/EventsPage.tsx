@@ -2,6 +2,7 @@
 import React from 'react';
 import { MOCK_EVENTS } from '../constants';
 import { User, UserRole } from '../types';
+import { Mic, GraduationCap, Rocket } from 'lucide-react';
 
 interface EventsPageProps {
   user: User;
@@ -24,8 +25,8 @@ const EventsPage: React.FC<EventsPageProps> = ({ user }) => {
           {MOCK_EVENTS.map((event, i) => (
             <div key={event.id} className="glass rounded-[3rem] p-10 md:p-14 shadow-2xl border-white/50 flex flex-col lg:flex-row items-center gap-12 group hover:-translate-y-1 transition-all duration-500 hover:shadow-orange-glow/10 animate-fade-in" style={{ animationDelay: `${i * 150}ms` }}>
               <div className="lg:w-1/4 w-full">
-                <div className={`aspect-square rounded-[2.5rem] flex items-center justify-center text-7xl bg-neutral-light shadow-inner border-2 border-white transform group-hover:rotate-6 transition-all duration-500`}>
-                  {event.category === 'Session' ? '🎙️' : '🎓'}
+                <div className={`aspect-square rounded-[2.5rem] flex items-center justify-center bg-neutral-light shadow-inner border-2 border-white transform group-hover:rotate-6 transition-all duration-500 text-primary-orange`}>
+                  {event.category === 'Session' ? <Mic size={64} /> : <GraduationCap size={64} />}
                 </div>
               </div>
               <div className="flex-grow text-center lg:text-left">
@@ -48,9 +49,9 @@ const EventsPage: React.FC<EventsPageProps> = ({ user }) => {
                     href={event.zoom_join_link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full block text-center bg-primary-orange text-white hover:bg-highlight-yellow hover:text-midnight py-6 rounded-2xl font-black text-lg transition-all shadow-2xl active:scale-95 shadow-orange-glow uppercase tracking-widest"
+                    className="w-full flex items-center justify-center gap-4 text-center bg-primary-orange text-white hover:bg-highlight-yellow hover:text-midnight py-6 rounded-2xl font-black text-lg transition-all shadow-2xl active:scale-95 shadow-orange-glow uppercase tracking-widest"
                   >
-                    Enter Arena 🚀
+                    Enter Arena <Rocket size={24} />
                   </a>
                 )}
               </div>

@@ -2,6 +2,7 @@
 import React from 'react';
 import { MOCK_RESOURCES } from '../constants';
 import { User, UserRole } from '../types';
+import { FileText, Video, Lock, Zap, Download } from 'lucide-react';
 
 interface ResourcesPageProps {
   user: User;
@@ -29,18 +30,20 @@ const ResourcesPage: React.FC<ResourcesPageProps> = ({ user }) => {
 
             return (
               <div key={resource.id} className={`glass rounded-[3rem] overflow-hidden shadow-2xl border-white/50 transition-all duration-500 animate-fade-in ${hasAccess ? 'hover:shadow-orange-glow/10 hover:-translate-y-2 group' : 'opacity-60 grayscale-[0.5]'}`} style={{ animationDelay: `${i * 100}ms` }}>
-                <div className="h-56 bg-neutral-light/50 flex items-center justify-center text-7xl relative shadow-inner overflow-hidden">
+                <div className="h-56 bg-neutral-light/50 flex items-center justify-center relative shadow-inner overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
-                  {resource.type === 'PDF' ? '📄' : '🎥'}
+                  <div className="text-primary-orange transform group-hover:scale-110 transition-transform">
+                    {resource.type === 'PDF' ? <FileText size={80} /> : <Video size={80} />}
+                  </div>
                   {!hasAccess && (
                     <div className="absolute inset-0 bg-hero-gradient/80 backdrop-blur-md flex flex-col items-center justify-center text-white p-8">
                       <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 ring-4 ring-white/10">
-                        <span className="text-3xl">🔒</span>
+                        <Lock size={32} className="text-highlight-yellow" />
                       </div>
                       <span className="text-xs font-black uppercase tracking-[0.2em] text-highlight-yellow text-center">Premium Access Protocol Required</span>
                     </div>
                   )}
-                  {hasAccess && <div className="absolute bottom-4 right-6 text-primary-orange opacity-0 group-hover:opacity-100 transition-opacity font-black text-3xl">↓</div>}
+                  {hasAccess && <div className="absolute bottom-4 right-6 text-primary-orange opacity-0 group-hover:opacity-100 transition-opacity font-black"><Download size={24} /></div>}
                 </div>
                 <div className="p-8 lg:p-10">
                   <div className="flex justify-between items-center mb-6">
@@ -53,8 +56,8 @@ const ResourcesPage: React.FC<ResourcesPageProps> = ({ user }) => {
                       Download Archive
                     </button>
                   ) : (
-                    <button className="w-full py-5 bg-primary-orange text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-highlight-yellow hover:text-midnight transition-all shadow-2xl active:scale-95 shadow-orange-glow">
-                      Unlock Full Access ⚡
+                    <button className="w-full flex items-center justify-center gap-3 py-5 bg-primary-orange text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-highlight-yellow hover:text-midnight transition-all shadow-2xl active:scale-95 shadow-orange-glow">
+                      Unlock Full Access <Zap size={16} />
                     </button>
                   )}
                 </div>

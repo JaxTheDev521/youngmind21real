@@ -50,7 +50,7 @@ export interface Department {
   name: string;
   description: string;
   color: string;
-  icon: string;
+  icon: any; // Changed from string to any to support Lucide components
 }
 
 export interface Election {

@@ -2,11 +2,13 @@
 import React from 'react';
 import { Department, MicroworldEvent, Resource, UserRole, MembershipType } from './types';
 
+import { Coins, Scale, Rocket, Palette } from 'lucide-react';
+
 export const DEPARTMENTS: Department[] = [
-  { id: '1', name: 'Commerce & Trade', description: 'Mastering the marketplace and entrepreneurship.', color: 'bg-primary-orange', icon: '💰' },
-  { id: '2', name: 'Justice & Ethics', description: 'Upholding values and resolving conflicts.', color: 'bg-secondary-pink', icon: '⚖️' },
-  { id: '3', name: 'Innovation & Tech', description: 'Building the future with digital skills.', color: 'bg-highlight-yellow', icon: '🚀' },
-  { id: '4', name: 'Arts & Culture', description: 'Creative expression and community building.', color: 'bg-secondary-pink', icon: '🎨' },
+  { id: '1', name: 'Commerce & Trade', description: 'Mastering the marketplace and entrepreneurship.', color: 'bg-primary-orange', icon: <Coins size={28} /> },
+  { id: '2', name: 'Justice & Ethics', description: 'Upholding values and resolving conflicts.', color: 'bg-secondary-pink', icon: <Scale size={28} /> },
+  { id: '3', name: 'Innovation & Tech', description: 'Building the future with digital skills.', color: 'bg-highlight-yellow', icon: <Rocket size={28} /> },
+  { id: '4', name: 'Arts & Culture', description: 'Creative expression and community building.', color: 'bg-secondary-pink', icon: <Palette size={28} /> },
 ];
 
 export const MOCK_EVENTS: MicroworldEvent[] = [

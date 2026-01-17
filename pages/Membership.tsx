@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Rocket } from 'lucide-react';
 
 const Membership: React.FC = () => {
   const plans = [
@@ -78,8 +78,8 @@ const Membership: React.FC = () => {
 
         {/* Sticky CTA for Mobile/Scroll */}
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 md:hidden w-[90%] animate-fade-in" style={{ animationDelay: '1s' }}>
-          <Link to="/onboarding" className="block w-full text-center py-4 glass-dark text-white rounded-2xl font-bold shadow-2xl border border-white/20 backdrop-blur-xl">
-            Get Started Now <span className="text-primary-orange">🚀</span>
+          <Link to="/onboarding" className="flex items-center justify-center gap-4 w-full text-center py-4 glass-dark text-white rounded-2xl font-bold shadow-2xl border border-white/20 backdrop-blur-xl">
+            Get Started Now <Rocket size={20} className="text-primary-orange" />
           </Link>
         </div>
 
