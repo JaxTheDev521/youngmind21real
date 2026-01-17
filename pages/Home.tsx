@@ -104,12 +104,12 @@ const Home: React.FC = () => {
       </section>
 
       {/* Resources & Learning Materials Section */}
-      <section className="py-20 sm:py-32 bg-hero-gradient text-white relative">
-        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(255,215,0,0.15),transparent_60%)] pointer-events-none z-0" />
+      <section className="py-20 sm:py-32 bg-[#E5E4E2] relative">
+        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(255,107,0,0.05),transparent_60%)] pointer-events-none z-0" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 sm:mb-20">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 text-white tracking-tight">Resources & Learning Materials</h2>
-            <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto font-medium">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 text-[#0F172A] tracking-tight">Resources & Learning Materials</h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto font-medium">
               Everything you need to succeed in the Young Microworld. Download guides, read the rules, and find answers to your questions.
             </p>
           </div>
@@ -151,7 +151,7 @@ const Home: React.FC = () => {
 
           {/* FAQ Accordion */}
           <div className="max-w-3xl mx-auto">
-            <h3 className="text-2xl sm:text-3xl font-black mb-10 text-center text-white">Frequently Asked Questions</h3>
+            <h3 className="text-2xl sm:text-3xl font-black mb-10 text-center text-[#0F172A]">Frequently Asked Questions</h3>
             <div className="space-y-4">
               {[
                 { q: "What is Young Microworld?", a: "Young Microworld is an interactive platform where children learn leadership, economics, and social responsibility through a simulated mini-society." },
@@ -185,21 +185,21 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <div className="bg-white/10 backdrop-blur-md rounded-[20px] border border-white/20 overflow-hidden transition-all duration-300">
+    <div className="bg-white/80 backdrop-blur-md rounded-[20px] border border-gray-200 overflow-hidden transition-all duration-300">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-white/5 transition-colors"
+        className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-white/50 transition-colors"
       >
-        <span className="text-lg font-bold text-white">{question}</span>
+        <span className="text-lg font-bold text-[#0F172A]">{question}</span>
         <div className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
-          <ChevronDown className="text-highlight-yellow" size={24} />
+          <ChevronDown className="text-primary-orange" size={24} />
         </div>
       </button>
       <div
         className={`px-8 transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 py-6 opacity-100' : 'max-h-0 py-0 opacity-0'
-          } overflow-hidden bg-black/10`}
+          } overflow-hidden bg-white/40`}
       >
-        <p className="text-white/80 leading-relaxed font-medium">{answer}</p>
+        <p className="text-gray-600 leading-relaxed font-medium">{answer}</p>
       </div>
     </div>
   );

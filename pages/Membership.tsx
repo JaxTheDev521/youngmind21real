@@ -78,8 +78,11 @@ const Membership: React.FC = () => {
 
         {/* Sticky CTA for Mobile/Scroll */}
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 md:hidden w-[90%] animate-fade-in" style={{ animationDelay: '1s' }}>
-          <Link to="/onboarding" className="flex items-center justify-center gap-4 w-full text-center py-4 glass-dark text-white rounded-2xl font-bold shadow-2xl border border-white/20 backdrop-blur-xl">
-            Get Started Now <Rocket size={20} className="text-primary-orange" />
+          <Link
+            to="/onboarding"
+            className="flex items-center justify-center gap-4 w-full text-center py-5 bg-gradient-to-r from-secondary-pink to-primary-orange text-white rounded-full font-black shadow-[0_0_30px_rgba(255,107,0,0.4)] border border-white/20 backdrop-blur-xl uppercase tracking-widest text-sm transition-all active:scale-95"
+          >
+            Get Started Now <Rocket size={20} className="animate-pulse" />
           </Link>
         </div>
 

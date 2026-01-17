@@ -38,6 +38,8 @@ export interface MicroworldEvent {
   title: string;
   description: string;
   start_datetime: string;
+  timezone: string;
+  duration_minutes: number;
   zoom_meeting_id?: string;
   zoom_join_link?: string;
   is_premium: boolean;
